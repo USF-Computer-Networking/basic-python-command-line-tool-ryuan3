@@ -1,0 +1,71 @@
+from argparse import ArgumentParser
+
+def add(args):
+    result = args.add[0]+args.add[1]
+    print("Result: ", result)
+
+def sub(args):
+    result = args.sub[0]-args.sub[1]
+    print("Result: ", result)
+
+def mul(args):
+    result = args.multi[0]*args.multi[1]
+    print("Result: ", result)
+
+def div(args):
+    result = args.div[0]/args.div[1]
+    print("Result: ", result)
+
+def mod(args):
+    result = args.mod[0]%args.mod[1]
+    print("Result: ", result)
+
+def hello(args):
+    print("Hello, "+args.hello+"!")
+
+def read(args):
+    file = open(args.read, 'r+')
+    for c in file:
+        print(c)
+    file.close()
+
+def write(args):
+    file = open("file_write.txt", 'w+')
+    file.write(args.write)
+    file.close()
+
+
+def main():
+    ap = ArgumentParser()
+    ap.add_argument('-a', '--add', type = int, nargs = 2, help = "Calculate the addtion of two numbers") 
+    ap.add_argument('-s', '--sub', type = int, nargs = 2, help = "Calculate the subtraction of two numbers")
+    ap.add_argument('-m', '--multi', type = int, nargs = 2, help = "Calculate the multiplication of two numbers")
+    ap.add_argument('-d', '--div', type = int, nargs = 2, help = "Calculate the division of two numbers")
+    ap.add_argument('-mo', "--mod", type = int, nargs = 2, help = "Calculate the remainder of two numbers")
+    ap.add_argument('-he', "--hello", type = str, nargs = '?', help = "Say hello to the user")
+    ap.add_argument('-r', "--read", type = str, nargs = '?', help = "Read the content of a file")
+    ap.add_argument('-w', "--write", type = str, nargs = '?', help = "Write input content to a file")
+
+    args = ap.parse_args()
+    
+    if args.add:
+        add(args)
+    elif args.sub:
+        sub(args)
+    elif args.multi:
+        mul(args)
+    elif args.div:
+        div(args)
+    elif args.mod:
+        mod(args)
+    elif args.hello:
+        hello(args)
+    elif args.read:
+        read(args)
+    elif args.write:
+        write(args)
+    else:
+        print("Invalid option")
+
+if __name__ == "__main__":
+    main()
