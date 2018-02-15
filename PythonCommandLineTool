@@ -2,23 +2,23 @@ from argparse import ArgumentParser
 
 def add(args):
     result = args.add[0]+args.add[1]
-    print("Result: "+ result)
+    print("Result: ", result)
 
 def sub(args):
     result = args.sub[0]-args.sub[1]
-    print("Result: "+ result)
+    print("Result: ", result)
 
 def mul(args):
     result = args.multi[0]*args.multi[1]
-    print("Result: "+ result)
+    print("Result: ", result)
 
 def div(args):
     result = args.div[0]/args.div[1]
-    print("Result: "+ result)
+    print("Result: ", result)
 
 def mod(args):
     result = args.mod[0]%args.mod[1]
-    print("Result: "+ result)
+    print("Result: ", result)
 
 def hello(args):
     print("Hello, "+args.hello+"!")
